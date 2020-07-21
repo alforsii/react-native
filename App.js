@@ -8,6 +8,7 @@ import {
 
 import WelcomeScreen from "./components/WelcomeScreen";
 import ImageView from "./components/ImageView";
+import GameExercise from "./components/GameExercise";
 
 export default function App() {
   const { landscape } = useDeviceOrientation();
@@ -23,7 +24,8 @@ export default function App() {
         }}
       ></SafeAreaView>
       <WelcomeScreen /> */}
-      <ImageView />
+      {/* <ImageView /> */}
+      <GameExercise />
     </>
   );
 }
