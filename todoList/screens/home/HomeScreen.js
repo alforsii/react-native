@@ -10,7 +10,7 @@ import {
 } from "react-native";
 
 import Header from "../Header";
-import LoginModal from "../../components/LoginModal";
+import LoginModal from "../../components/forms/LoginModal";
 
 export default function HomeScreen({ navigation }) {
   return (

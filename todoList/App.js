@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 import { StyleSheet } from "react-native";
+import { FontAwesome, AntDesign } from "@expo/vector-icons";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 const Drawer = createDrawerNavigator();
@@ -24,7 +26,17 @@ export default function App() {
     return (
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen name="Home" component={HomeScreen} />
+          <Drawer.Screen
+            options={() => {
+              return {
+                title: "Hello",
+                drawerLabel: "Hello world",
+                headerTintColor: "#fff",
+              };
+            }}
+            name="Home"
+            component={HomeScreen}
+          />
           <Drawer.Screen name="About" component={AboutScreen} />
           <Drawer.Screen name="Todos" component={TodosScreen} />
         </Drawer.Navigator>

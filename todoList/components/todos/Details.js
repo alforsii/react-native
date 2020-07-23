@@ -1,6 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
 
+import ReviewForm from "../forms/ReviewForm";
+import Modal from "../Modal";
+
 export default function Details(props) {
   console.log("Details -> props", props);
   const { title, completed } = props.route.params;
@@ -14,6 +17,16 @@ export default function Details(props) {
       /> */}
       <Text> Title: {title} </Text>
       <Text> Completed: {completed ? "Yes" : "No"} </Text>
+      <Modal
+        component={ReviewForm}
+        title="Reviews"
+        titleStyle={{
+          color: "dodgerblue",
+          fontSize: 20,
+          position: "absolute",
+          right: 10,
+        }}
+      />
     </View>
   );
 }

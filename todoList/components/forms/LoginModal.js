@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Text, Modal } from "react-native";
+import { StyleSheet, View, Text, Modal, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import LoginForm from "./LoginForm";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function LoginModal() {
   const [openModal, setOpenModal] = useState(false);
