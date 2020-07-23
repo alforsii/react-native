@@ -32,7 +32,7 @@ export default function Details(props) {
       <Text> Completed: {completed ? "Yes" : "No"} </Text>
       <Modal
         component={ReviewForm}
-        title="Review"
+        title="Leave feedback"
         titleStyle={{
           color: "dodgerblue",
           fontSize: 20,

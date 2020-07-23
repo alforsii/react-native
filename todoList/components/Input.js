@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     width: "80%",
     padding: 5,
     margin: 15,
+    marginBottom: 5,
     fontSize: 20,
   },
 });

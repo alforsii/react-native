@@ -9,7 +9,14 @@ import { globalStyles } from "../../global/styles/globalStyles";
 
 const reviewSchema = yup.object().shape({
   name: yup.string().required().min(4),
-  rating: yup.string().required().min(4),
+  rating: yup
+    .string()
+    .required()
+    .test(
+      "Is num 1-5?",
+      "rating must be 1-5",
+      (value) => value > 0 && value < 6
+    ),
   comment: yup.string().required().min(4),
   date: yup.string(),
 });
@@ -20,7 +27,6 @@ export default function ReviewForm({ setOpenModal, setReviews }) {
         initialValues={{ name: "", rating: "", comment: "", date: "Today" }}
         validationSchema={reviewSchema}
         onSubmit={(values, actions) => {
-          console.log("ReviewForm -> values", values);
           setReviews((prevState) => [values, ...prevState]);
           actions.resetForm();
           setOpenModal(false);
@@ -42,7 +48,10 @@ export default function ReviewForm({ setOpenModal, setReviews }) {
               value={values.name}
               placeholder="Your name"
             />
-            <Text> {errors.name && errors.name} </Text>
+            <Text style={globalStyles.errorMessage}>
+              {" "}
+              {errors.name && touched.name && errors.name}{" "}
+            </Text>
             <Input
               onChangeText={handleChange("rating")}
               onBlur={handleBlur("rating")}
@@ -51,7 +60,10 @@ export default function ReviewForm({ setOpenModal, setReviews }) {
               placeholder="Rating(1-5)"
               maxLength={5}
             />
-            <Text> {errors.rating && errors.rating} </Text>
+            <Text style={globalStyles.errorMessage}>
+              {" "}
+              {errors.rating && touched.rating && errors.rating}{" "}
+            </Text>
             <Input
               multiline
               onChangeText={handleChange("comment")}
@@ -59,8 +71,11 @@ export default function ReviewForm({ setOpenModal, setReviews }) {
               value={values.comment}
               placeholder="Comments..."
             />
-            <Text> {errors.comment && errors.comment1} </Text>
-            <View>
+            <Text style={globalStyles.errorMessage}>
+              {errors.comment && touched.comment && errors.comment}
+            </Text>
+            <View style={globalStyles.flexRow}>
+              <Button onPress={() => setOpenModal(false)} title="Cancel" />
               <Button onPress={handleSubmit} title="Submit" />
             </View>
           </View>

@@ -15,4 +15,13 @@ export const globalStyles = StyleSheet.create({
     color: "dodgerblue",
     fontSize: 16,
   },
+  errorMessage: {
+    color: "red",
+  },
+  flexRow: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    width: "80%",
+  },
 });
