@@ -15,6 +15,7 @@ export default function LoginModal({
   component: Component,
   title,
   titleStyle,
+  ...rest
 }) {
   const [openModal, setOpenModal] = useState(false);
   return (
@@ -35,7 +36,7 @@ export default function LoginModal({
       <Modal visible={openModal} animationType="slide">
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View>
-            <Component />
+            <Component {...rest} setOpenModal={setOpenModal} />
             <AntDesign
               style={styles.closeBtn}
               name="closecircleo"
