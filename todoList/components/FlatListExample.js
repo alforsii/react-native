@@ -3,12 +3,11 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView,
   FlatList,
   TouchableOpacity,
 } from "react-native";
 
-export default function ScrollViews() {
+export default function CustomFlatList() {
   const [people, setPeople] = useState([
     { name: "shaun", id: "1" },
     { name: "yoshi", id: "2" },
@@ -35,14 +34,6 @@ export default function ScrollViews() {
           </TouchableOpacity>
         )}
       />
-      {/* <ScrollView>
-        {people.map((person) => (
-          <Text style={styles.text} key={person.id}>
-            {" "}
-            {person.name}{" "}
-          </Text>
-        ))}
-      </ScrollView> */}
     </View>
   );
 }

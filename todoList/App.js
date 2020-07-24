@@ -10,6 +10,9 @@ import HomeScreen from "./screens/home/HomeScreen";
 import Animations from "./screens/animations/Animations";
 import AboutScreen from "./screens/about/AboutScreen";
 import TodosScreen from "./screens/todos/TodosScreen";
+import Transforms from "./screens/transform/Transforms";
+import Tabs from "./screens/tabs/Tabs";
+import CustomButton from "./components/CustomButton";
 
 export default function App() {
   const [fontsLoaded, setFonts] = useState(false);
@@ -25,20 +28,12 @@ export default function App() {
     return (
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen
-            options={() => {
-              return {
-                title: "Hello",
-                drawerLabel: "Hello world",
-                headerTintColor: "#fff",
-              };
-            }}
-            name="Home"
-            component={HomeScreen}
-          />
+          <Drawer.Screen name="Home" component={HomeScreen} />
           <Drawer.Screen name="Animations" component={Animations} />
           <Drawer.Screen name="About" component={AboutScreen} />
           <Drawer.Screen name="Todos" component={TodosScreen} />
+          <Drawer.Screen name="Transforms" component={Transforms} />
+          <Drawer.Screen name="Tabs" component={Tabs} />
         </Drawer.Navigator>
       </NavigationContainer>
     );

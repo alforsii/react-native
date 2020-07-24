@@ -1,26 +1,28 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
+import { CustomButton } from "../CustomButton";
 
-import Header from "../Header";
-import { TouchableOpacity } from "react-native-gesture-handler";
-
+const screens = ["FadeAnim", "AnimXY", "ResizeBall", "PanResponder", "Easing"];
 export default function AnimationsList({ navigation }) {
   return (
-    <View>
-      <Header navigation={navigation} title="Animations" />
-      <TouchableOpacity onPress={() => navigation.navigate("FadeAnim")}>
-        <Button title="FadeAmin" />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("AnimXY")}>
-        <Button title="AnimXy" />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("ResizeBall")}>
-        <Button title="ResizeBall" />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate("PanResponder")}>
-        <Button title="PanResponder" />
-      </TouchableOpacity>
-    </View>
+    <ScrollView>
+      {screens.map((name, i) => (
+        <CustomButton
+          key={i}
+          title={name}
+          onPress={() => navigation.navigate(name)}
+          style={{
+            /* some styles for button */
+            alignItems: "flex-start",
+          }}
+          textStyle={{
+            /* styles for button title */
+            fontSize: 18,
+            marginLeft: 20,
+          }}
+        />
+      ))}
+    </ScrollView>
   );
 }
 
