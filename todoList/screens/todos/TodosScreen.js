@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+// import { StyleSheet, Text, View } from "react-native";
 
 // import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -49,4 +49,4 @@ export default function TodosScreen() {
   );
 }
 
-const styles = StyleSheet.create({});
+// const styles = StyleSheet.create({});

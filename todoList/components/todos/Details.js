@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { Text, View } from "react-native";
 
 import ReviewForm from "../forms/ReviewForm";
 import Reviews from "./Reviews";
@@ -45,5 +45,3 @@ export default function Details(props) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({});

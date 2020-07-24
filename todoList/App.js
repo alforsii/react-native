@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 import { StyleSheet } from "react-native";
-import { FontAwesome, AntDesign } from "@expo/vector-icons";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";

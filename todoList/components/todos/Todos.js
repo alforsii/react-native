@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 import uuid from "react-uuid";
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  TouchableOpacity,
-  Button,
-} from "react-native";
+import { StyleSheet, View, FlatList, TouchableOpacity } from "react-native";
 
 import { data } from "../../data";
 
-import Header from "../../screens/Header";
+// import Header from "../../screens/Header";
 import TodoItem from "./TodoItem";
 import AddTodo from "./AddTodo";
 

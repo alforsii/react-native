@@ -1,8 +1,6 @@
 import React from "react";
 import {
   StyleSheet,
-  View,
-  Text,
   SafeAreaView,
   ImageBackground,
   Keyboard,
