@@ -2,7 +2,8 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-export default function Header({ title, navigation }) {
+export default function Header(props) {
+  const { title, navigation } = props;
   return (
     <View style={styles.headerContainer}>
       <MaterialIcons

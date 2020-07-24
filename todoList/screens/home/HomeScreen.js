@@ -7,7 +7,7 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 
-import Header from "../Header";
+import Header from "../../components/Header";
 import LoginModal from "../../components/forms/LoginModal";
 
 export default function HomeScreen({ navigation }) {

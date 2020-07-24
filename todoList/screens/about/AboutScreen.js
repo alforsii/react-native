@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, SafeAreaView } from "react-native";
 
-import Header from "../Header";
+import Header from "../../components/Header";
 import { globalStyles } from "../../global/styles/globalStyles";
 
 export default function AboutScreen({ navigation }) {

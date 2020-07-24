@@ -4,7 +4,7 @@ import React from "react";
 // import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Header from "../Header";
+import Header from "../../components/Header";
 import Todos from "../../components/todos/Todos";
 import Details from "../../components/todos/Details";
 // import ScrollViews from "../../components/ScrollViews";
