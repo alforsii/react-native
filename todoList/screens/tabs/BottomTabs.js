@@ -1,27 +1,29 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 
-import AnimationsList from "../../components/animations/AnimationsList";
 import Transforms from "../../components/transforms/Transforms";
-import Todos from "../../components/todos/Todos";
 
 const Tab = createBottomTabNavigator();
 
 export default function BottomTabs() {
   return (
     <>
-      <SafeAreaView></SafeAreaView>
       <Tab.Navigator
         tabBarOptions={{
           activeTintColor: "tomato",
           inactiveTintColor: "gray",
+          labelStyle: {
+            fontSize: 14,
+            textTransform: "uppercase",
+          },
+          iconStyle: { fontSize: 30 },
         }}
       >
         <Tab.Screen
-          name="AnimationList"
+          name="Transforms"
           options={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
               // You can return any component that you like here!
@@ -30,11 +32,11 @@ export default function BottomTabs() {
               );
             },
           })}
-          component={AnimationsList}
+          component={Transforms}
         />
 
         <Tab.Screen
-          name="Transforms"
+          name="Transforms2"
           options={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
               // You can return any component that you like here!
@@ -46,7 +48,7 @@ export default function BottomTabs() {
           component={Transforms}
         />
         <Tab.Screen
-          name="Todos"
+          name="Transforms3"
           options={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
               // You can return any component that you like here!
@@ -55,7 +57,7 @@ export default function BottomTabs() {
               );
             },
           })}
-          component={Todos}
+          component={Transforms}
         />
       </Tab.Navigator>
     </>

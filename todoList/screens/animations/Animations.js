@@ -14,7 +14,7 @@ const Stack = createStackNavigator();
 
 export default function Animations() {
   return (
-    <Stack.Navigator initialRouteName="AnimationsList">
+    <Stack.Navigator>
       <Stack.Screen
         name="AnimationsList"
         options={({ navigation }) => {

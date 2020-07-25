@@ -1,10 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const width = Dimensions.get("screen").width;
 export default function Header(props) {
   const { title, navigation } = props;
+  // const navigation = useNavigation(); //also we can use hooks if we can't pass via props
   return (
     <View style={styles.headerContainer}>
       <MaterialIcons

@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { ScrollView } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import TopTabs from "./TopTabs";
 import BottomTabs from "./BottomTabs";
+import BottomMaterialTab from "./BottomMaterialTab";
 import Heder from "../../components/Header";
 import { CustomButton } from "../../components/CustomButton";
 const Stack = createStackNavigator();
@@ -22,22 +23,33 @@ export const TabStacks = () => {
       />
       <Stack.Screen name="TopTabs" component={TopTabs} />
       <Stack.Screen name="BottomTabs" component={BottomTabs} />
+      <Stack.Screen name="BottomMaterialTab" component={BottomMaterialTab} />
     </Stack.Navigator>
   );
 };
 
 function Tabs({ navigation }) {
   return (
-    <View>
+    <ScrollView>
       <CustomButton
         title="Top Tabs"
         onPress={() => navigation.navigate("TopTabs")}
+        style={{ backgroundColor: "#ddd", shadowColor: "#777" }}
+        textStyle={{ color: "#333" }}
       />
       <CustomButton
         title="Bottom Tabs"
         onPress={() => navigation.navigate("BottomTabs")}
+        style={{ backgroundColor: "#ddd", shadowColor: "#777" }}
+        textStyle={{ color: "#333" }}
       />
-    </View>
+      <CustomButton
+        title="Bottom Material Tab"
+        onPress={() => navigation.navigate("BottomMaterialTab")}
+        style={{ backgroundColor: "#ddd", shadowColor: "#777" }}
+        textStyle={{ color: "#333" }}
+      />
+    </ScrollView>
   );
 }
 
