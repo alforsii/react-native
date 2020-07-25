@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Provider } from "react-redux";
+import { reduxStore } from "./auth_redux/store";
+
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 import { AppearanceProvider, useColorScheme } from "react-native-appearance";
@@ -44,18 +47,20 @@ export default function App() {
 
   if (fontsLoaded) {
     return (
-      <AppearanceProvider>
-        <NavigationContainer theme={scheme === "dark" ? DarkTheme : MyTheme}>
-          <Drawer.Navigator initialRouteName="Home">
-            <Drawer.Screen name="Home" component={HomeScreen} />
-            <Drawer.Screen name="Animations" component={Animations} />
-            <Drawer.Screen name="About" component={AboutScreen} />
-            <Drawer.Screen name="Todos" component={TodosScreen} />
-            <Drawer.Screen name="Transforms" component={Transforms} />
-            <Drawer.Screen name="Tabs" component={Tabs} />
-          </Drawer.Navigator>
-        </NavigationContainer>
-      </AppearanceProvider>
+      <Provider store={reduxStore}>
+        <AppearanceProvider>
+          <NavigationContainer theme={scheme === "dark" ? DarkTheme : MyTheme}>
+            <Drawer.Navigator initialRouteName="Home">
+              <Drawer.Screen name="Home" component={HomeScreen} />
+              <Drawer.Screen name="Animations" component={Animations} />
+              <Drawer.Screen name="About" component={AboutScreen} />
+              <Drawer.Screen name="Todos" component={TodosScreen} />
+              <Drawer.Screen name="Transforms" component={Transforms} />
+              <Drawer.Screen name="Tabs" component={Tabs} />
+            </Drawer.Navigator>
+          </NavigationContainer>
+        </AppearanceProvider>
+      </Provider>
     );
   } else {
     return <AppLoading startAsync={getFonts} onFinish={() => setFonts(true)} />;

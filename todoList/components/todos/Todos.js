@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { getTodos } from "../../auth_redux/actions/todosActions";
 import uuid from "react-uuid";
 import { StyleSheet, View, FlatList, TouchableOpacity } from "react-native";
-
-import { data } from "../../data";
 
 // import Header from "../../screens/Header";
 import TodoItem from "./TodoItem";
 import AddTodo from "./AddTodo";
 
-export default function Todos({ navigation }) {
-  const [todos, setTodos] = useState(data);
+// =-=-=-=-=-=-=-=-=-=- Todos Component =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+export const Todos = ({ navigation, todosData, getTodos }) => {
+  const [todos, setTodos] = useState(todosData);
+  useEffect(() => {
+    getTodos(); //_limit=10 - change limit in actions getTodos.
+  }, []);
+  useEffect(() => {
+    setTodos(todosData);
+  }, [todosData]);
 
   const addTodo = (text) => {
     if (!text) return alert("Please enter new todo!");
@@ -41,7 +48,18 @@ export default function Todos({ navigation }) {
       />
     </View>
   );
-}
+};
+
+const mapStateToProps = (state) => {
+  // console.log("state", state);
+  return {
+    todosData: state.todosReducer.todos,
+  };
+};
+const dispatchToProps = (dispatch) => ({
+  getTodos: () => dispatch(getTodos()),
+});
+export default connect(mapStateToProps, dispatchToProps)(Todos);
 
 const styles = StyleSheet.create({
   container: {
