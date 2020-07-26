@@ -1,29 +1,41 @@
 import React from "react";
-import { StyleSheet, Text, View, SectionList } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SectionList,
+  SafeAreaView,
+} from "react-native";
 import { transforms } from "./data";
+import FocusAwareStatusBar from "../FocusedStatusBar";
 
-export const TransformsExample = () => (
-  <SectionList
-    contentContainerStyle={styles.list}
-    sections={transforms}
-    keyExtractor={(item) => item.title}
-    renderItem={({ item, section }) => (
-      <View
-        style={[
-          styles.box,
-          {
-            transform: item.transform,
-          },
-        ]}
-      >
-        <Text>{section.title}</Text>
-      </View>
-    )}
-    renderSectionHeader={({ section: { title } }) => (
-      <Text style={styles.listHeader}>{title}</Text>
-    )}
-  />
-);
+export const TransformsExample = () => {
+  return (
+    <SafeAreaView>
+      <FocusAwareStatusBar barStyle="light-content" backgroundColor="#fff" />
+      <SectionList
+        contentContainerStyle={styles.list}
+        sections={transforms}
+        keyExtractor={(item) => item.title}
+        renderItem={({ item, section }) => (
+          <View
+            style={[
+              styles.box,
+              {
+                transform: item.transform,
+              },
+            ]}
+          >
+            <Text>{section.title}</Text>
+          </View>
+        )}
+        renderSectionHeader={({ section: { title } }) => (
+          <Text style={styles.listHeader}>{title}</Text>
+        )}
+      />
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

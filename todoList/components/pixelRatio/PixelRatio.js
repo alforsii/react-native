@@ -20,46 +20,42 @@ const cat = {
 const PixelRationExample = () => {
   const { colors } = useTheme();
   return (
-    <ScrollView style={{ height: Dimensions.get("screen").height }}>
-      <View>
-        <View
-          style={{ ...styles.container, backgroundColor: colors.background }}
-        >
-          <Text style={{ color: colors.text }}>Current Pixel Ratio is:</Text>
-          <Text style={styles.value}>{PixelRatio.get()}</Text>
-        </View>
-        <View
-          style={{ ...styles.container, backgroundColor: colors.background }}
-        >
-          <Text style={{ color: colors.text }}>Current Font Scale is:</Text>
-          <Text style={styles.value}>{PixelRatio.getFontScale()}</Text>
-        </View>
-        <View
-          style={{ ...styles.container, backgroundColor: colors.background }}
-        >
-          <Text style={{ color: colors.text }}>
-            On this device images with a layout width of
-          </Text>
-          <Text style={styles.value}>{size} px</Text>
-          <Image source={cat} />
-        </View>
-        <View
-          style={{ ...styles.container, backgroundColor: colors.background }}
-        >
-          <Text style={{ color: colors.text }}>
-            require images with a pixel width of
-          </Text>
-          <Text style={styles.value}>
-            {PixelRatio.getPixelSizeForLayoutSize(size)} px
-          </Text>
-          <Image
-            source={cat}
-            style={{
-              width: PixelRatio.getPixelSizeForLayoutSize(size),
-              height: PixelRatio.getPixelSizeForLayoutSize(size),
-            }}
-          />
-        </View>
+    <ScrollView
+      contentContainerStyle={{
+        backgroundColor: colors.card,
+        height: Dimensions.get("screen").height - 100,
+      }}
+      style={{ height: Dimensions.get("screen").height }}
+    >
+      <View style={{ ...styles.container }}>
+        <Text style={{ color: colors.text }}>Current Pixel Ratio is:</Text>
+        <Text style={styles.value}>{PixelRatio.get()}</Text>
+      </View>
+      <View style={{ ...styles.container }}>
+        <Text style={{ color: colors.text }}>Current Font Scale is:</Text>
+        <Text style={styles.value}>{PixelRatio.getFontScale()}</Text>
+      </View>
+      <View style={{ ...styles.container }}>
+        <Text style={{ color: colors.text }}>
+          On this device images with a layout width of
+        </Text>
+        <Text style={styles.value}>{size} px</Text>
+        <Image source={cat} />
+      </View>
+      <View style={{ ...styles.container }}>
+        <Text style={{ color: colors.text }}>
+          require images with a pixel width of
+        </Text>
+        <Text style={styles.value}>
+          {PixelRatio.getPixelSizeForLayoutSize(size)} px
+        </Text>
+        <Image
+          source={cat}
+          style={{
+            width: PixelRatio.getPixelSizeForLayoutSize(size),
+            height: PixelRatio.getPixelSizeForLayoutSize(size),
+          }}
+        />
       </View>
     </ScrollView>
   );

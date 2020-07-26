@@ -6,7 +6,7 @@ import TopTabs from "./TopTabs";
 import BottomTabs from "./BottomTabs";
 import BottomMaterialTab from "./BottomMaterialTab";
 import Heder from "../../components/Header";
-import { CustomButton } from "../../components/CustomButton";
+import { CustomButton } from "../../components/buttons/CustomButton";
 const Stack = createStackNavigator();
 
 export const TabStacks = () => {

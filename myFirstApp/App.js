@@ -1,10 +1,13 @@
-// import { StatusBar } from "expo-status-bar";
+import "react-native-gesture-handler";
 import React from "react";
 import { StyleSheet, Dimensions, SafeAreaView } from "react-native";
 import {
   useDimensions,
   useDeviceOrientation,
 } from "@react-native-community/hooks";
+import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+const Drawer = createDrawerNavigator();
 
 import WelcomeScreen from "./components/WelcomeScreen";
 import ImageView from "./components/ImageView";
@@ -16,17 +19,16 @@ export default function App() {
   console.log(useDimensions().screen.height);
   // console.log(useDeviceOrientation());
   return (
-    <>
-      {/* <SafeAreaView
-        style={{
-          height: landscape ? "30%" : "5%",
-          backgroundColor: "dodgerblue",
-        }}
-      ></SafeAreaView>
-      <WelcomeScreen /> */}
-      {/* <ImageView /> */}
-      <GameExercise />
-    </>
+    <NavigationContainer>
+      <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Screen name="Home" component={GameExercise} />
+        {/* <Drawer.Screen name="Animations" component={Animations} /> */}
+        {/* <Drawer.Screen name="About" component={AboutScreen} /> */}
+        {/* <Drawer.Screen name="Todos" component={TodosScreen} /> */}
+        {/* <Drawer.Screen name="Transforms" component={Transforms} /> */}
+        {/* <Drawer.Screen name="Tabs" component={Tabs} /> */}
+      </Drawer.Navigator>
+    </NavigationContainer>
   );
 }
 

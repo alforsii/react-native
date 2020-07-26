@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, SectionList } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, SectionList } from "react-native";
 
 export default function SectionListExample() {
   return (
@@ -8,10 +8,7 @@ export default function SectionListExample() {
       sections={SECTIONS}
       keyExtractor={(item) => item.title}
       renderItem={({ item }) => (
-        <TouchableOpacity
-          onPress={() => animate(item.easing)}
-          style={styles.listRow}
-        >
+        <TouchableOpacity>
           <Text>{item.title}</Text>
         </TouchableOpacity>
       )}

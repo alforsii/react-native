@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+// import { useNavigation } from "@react-navigation/native";
 
 const width = Dimensions.get("screen").width;
 export default function Header(props) {

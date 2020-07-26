@@ -13,7 +13,7 @@ import Card from "./Card";
 import Paragraph from "./Paragraph";
 import Input from "./Input";
 
-export const GameExercise = () => {
+export const GameExercise = ({ navigation }) => {
   const [number, setNumber] = useState("");
   const handleInput = (val) => {
     setNumber(val);
@@ -56,6 +56,7 @@ export const GameExercise = () => {
             />
           </View>
         </Card>
+        <Button title="open drawer" onPress={() => navigation.openDrawer()} />
       </View>
     </TouchableWithoutFeedback>
   );

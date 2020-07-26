@@ -19,7 +19,6 @@ export default function CustomFlatList() {
   ]);
 
   const handleTouch = (id) => {
-    console.log(id);
     const updatePeople = people.filter((item) => item.id != id);
     setPeople(updatePeople);
   };

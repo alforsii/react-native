@@ -1,4 +1,4 @@
-import { Animated, Text, View, StyleSheet, Button } from "react-native";
+import { StyleSheet } from "react-native";
 
 export const mainStyles = StyleSheet.create({
   container: {

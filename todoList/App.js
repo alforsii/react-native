@@ -1,4 +1,6 @@
+import "react-native-gesture-handler";
 import React, { useState } from "react";
+import { View, Text } from "react-native";
 import { Provider } from "react-redux";
 import { reduxStore } from "./auth_redux/store";
 
@@ -21,6 +23,7 @@ import AboutScreen from "./screens/about/AboutScreen";
 import TodosScreen from "./screens/todos/TodosScreen";
 import Transforms from "./screens/transform/Transforms";
 import Tabs from "./screens/tabs/Tabs";
+import ExamplesStacks from "./screens/examplesList/ExamplesStacks";
 
 export default function App() {
   const scheme = useColorScheme();
@@ -37,7 +40,7 @@ export default function App() {
     colors: {
       ...DefaultTheme.colors,
       primary: "#000",
-      text: "#333",
+      text: "#fff",
       card: "dodgerblue",
       border: "red",
       notification: "green",
@@ -52,11 +55,12 @@ export default function App() {
           <NavigationContainer theme={scheme === "dark" ? DarkTheme : MyTheme}>
             <Drawer.Navigator initialRouteName="Home">
               <Drawer.Screen name="Home" component={HomeScreen} />
+              <Drawer.Screen name="All Examples" component={ExamplesStacks} />
               <Drawer.Screen name="Animations" component={Animations} />
               <Drawer.Screen name="About" component={AboutScreen} />
+              <Drawer.Screen name="Tabs" component={Tabs} />
               <Drawer.Screen name="Todos" component={TodosScreen} />
               <Drawer.Screen name="Transforms" component={Transforms} />
-              <Drawer.Screen name="Tabs" component={Tabs} />
             </Drawer.Navigator>
           </NavigationContainer>
         </AppearanceProvider>

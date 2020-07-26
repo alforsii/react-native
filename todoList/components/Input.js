@@ -1,6 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
+import { StyleSheet, TextInput } from "react-native";
 
 export default function Input(props) {
   return <TextInput {...props} style={{ ...styles.input, ...props.style }} />;
