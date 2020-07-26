@@ -15,7 +15,7 @@ import GameExercise from "./components/GameExercise";
 
 export default function App() {
   const { landscape } = useDeviceOrientation();
-  // console.log(Dimensions.get("screen"));
+  console.log(Dimensions.get("screen"));
   console.log(useDimensions().screen.height);
   // console.log(useDeviceOrientation());
   return (
