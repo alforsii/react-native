@@ -15,6 +15,7 @@ import ActivityIndicators from "../../components/loaders/ActivityIndicators";
 import AppState from "../../components/appState/AppState";
 import LinkingExample from "../../components/linking/LinkingExample";
 import Todos from "../../components/todos/Todos";
+import LoadMore from "../../components/LoadMore";
 
 import TopTabs from "../tabs/TopTabs";
 
@@ -41,6 +42,7 @@ export default function Animations() {
       <Stack.Screen name="App State Change example" component={AppState} />
       <Stack.Screen name="Linking Examples" component={LinkingExample} />
       <Stack.Screen name="Scroll Top and Bottom Examples" component={Todos} />
+      <Stack.Screen name="LoadMore when scroll down" component={LoadMore} />
       <Stack.Screen
         name="Modal"
         children={() => (

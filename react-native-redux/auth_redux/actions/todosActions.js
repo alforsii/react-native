@@ -12,11 +12,15 @@ export const getTodos = () => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
-export const getPhotos = () => (dispatch) => {
+export const getPhotos = (page) => (dispatch) => {
+  dispatch({ type: "LOADING", loading: true });
   return service
-    .get("/photos?_limit=10")
+    .get(`/photos?_limit=10&_page=${page}`)
     .then((photos) => {
       return dispatch({ type: "PHOTOS", photos: photos.data });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      dispatch({ type: "ERROR", loading: false });
+      console.log(err);
+    });
 };

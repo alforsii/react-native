@@ -16,7 +16,7 @@ import AddTodo from "./AddTodo";
 
 // =-=-=-=-=-=-=-=-=-=- Todos Component =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 export const Todos = ({ navigation, todosData, getTodos }) => {
-  const [todos, setTodos] = useState(todosData);
+  const [todos, setTodos] = useState([]);
   const scrollRef = React.useRef();
   useScrollToTop(scrollRef);
 
