@@ -6,10 +6,17 @@ const service = axios.create({
 
 export const getTodos = () => (dispatch) => {
   return service
-    .get("/todos?_limit=10")
+    .get("/todos?_limit=20")
     .then((todos) => {
-      console.log("getTodos -> todos", todos);
-      dispatch({ type: "TODOS", todos: todos.data });
+      return dispatch({ type: "TODOS", todos: todos.data });
+    })
+    .catch((err) => console.log(err));
+};
+export const getPhotos = () => (dispatch) => {
+  return service
+    .get("/photos?_limit=10")
+    .then((photos) => {
+      return dispatch({ type: "PHOTOS", photos: photos.data });
     })
     .catch((err) => console.log(err));
 };

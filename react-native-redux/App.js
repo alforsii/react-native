@@ -1,4 +1,4 @@
-import "react-native-gesture-handler";
+import "react-native-gesture-handler"; // <= DO NOT REMOVE or DO NOT MOVE DOWN - DO NOT TOUCH!
 import * as React from "react";
 import { useState } from "react";
 import {
@@ -14,6 +14,8 @@ import { AppLoading } from "expo";
 import { AppearanceProvider, useColorScheme } from "react-native-appearance";
 
 import { createDrawerNavigator } from "@react-navigation/drawer";
+// import { enableScreens } from "react-native-screens";
+// enableScreens();
 const Drawer = createDrawerNavigator();
 
 import HomeScreen from "./screens/home/HomeScreen";
@@ -54,7 +56,6 @@ export default function App() {
           <NavigationContainer theme={scheme === "dark" ? DarkTheme : MyTheme}>
             <Drawer.Navigator initialRouteName="Home">
               <Drawer.Screen name="Home" component={HomeScreen} />
-
               <Drawer.Screen name="All Examples" component={ExamplesStacks} />
               <Drawer.Screen name="Animations" component={Animations} />
               <Drawer.Screen name="About" component={AboutScreen} />

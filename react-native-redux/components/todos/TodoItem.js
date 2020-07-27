@@ -7,6 +7,7 @@ export default function TodoItem({ todo, removeTodo }) {
   return (
     <View style={styles.container}>
       <View>
+        <Text style={styles.todo}>Index: {todo.id - 1}</Text>
         <Text style={styles.todo}>Title: {todo.title}</Text>
         <Text style={styles.todo}>
           Completed: {todo.completed ? "Yes" : "No"}

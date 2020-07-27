@@ -8,6 +8,11 @@ const screens = [
   "StatusBar with Stacks",
   "StatusBar with Tabs",
   "Modal",
+  "On refresh",
+  "Activity Indicators",
+  "App State Change example",
+  "Linking Examples",
+  "Scroll Top and Bottom Examples",
 ];
 export default function ExamplesList({ navigation }) {
   return (
