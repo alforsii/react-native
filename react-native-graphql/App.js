@@ -1,21 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { AsyncStorage, Text } from "react-native";
+import MyRootComponent from "./MyRootComponent";
+import { ApolloProvider } from "react-apollo";
+
+import { makeApolloClient } from "./ApolloBoost";
+// import makeApolloClient from "./ApolloClient";
+
+// const uri = process.env.REACT_APP_BASE_URL;
 
 export default function App() {
+  const [client, setClient] = React.useState(null);
+  const fetchSession = async () => {
+    // // fetch session
+    // const session = await AsyncStorage.getItem("@todo-graphql:session");
+    // const sessionObj = JSON.parse(session);
+    // const { token, id } = sessionObj;
+    // const client = makeApolloClient(token);
+    const client = makeApolloClient();
+    setClient(client);
+  };
+  React.useEffect(() => {
+    fetchSession();
+  }, []);
+  if (!client) {
+    return <Text>Loading...</Text>;
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ApolloProvider client={client}>
+      <MyRootComponent />
+    </ApolloProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
