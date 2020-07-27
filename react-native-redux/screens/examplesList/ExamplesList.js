@@ -14,6 +14,8 @@ const screens = [
   "Linking Examples",
   "Scroll Top and Bottom Examples",
   "LoadMore when scroll down",
+  "Switch",
+  "Share",
 ];
 export default function ExamplesList({ navigation }) {
   return (

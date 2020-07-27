@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, Modal, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import LoginForm from "./LoginForm";
 
-export default function LoginModal() {
+export default function LoginModal({ handleLogin }) {
   const [openModal, setOpenModal] = useState(false);
   return (
     <View style={styles.modal}>
@@ -15,7 +15,7 @@ export default function LoginModal() {
         <Text style={styles.text}>Login</Text>
       </TouchableOpacity>
       <Modal visible={openModal} animationType="slide">
-        <LoginForm setOpenModal={setOpenModal} />
+        <LoginForm setOpenModal={setOpenModal} handleLogin={handleLogin} />
       </Modal>
     </View>
   );
