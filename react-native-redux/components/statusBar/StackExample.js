@@ -7,8 +7,6 @@ import {
   SafeAreaView,
 } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-// import { SafeAreaProvider } from "react-native-safe-area-context";
-// import SafeAreaView from "react-native-safe-area-view";
 
 function Screen1({ navigation }) {
   return (
@@ -46,14 +44,6 @@ export default function App() {
       <Stack.Screen name="Screen2" component={Screen2} />
     </Stack.Navigator>
   );
-  // return (
-  //   <SafeAreaProvider>
-  //     <Stack.Navigator headerMode="none">
-  //       <Stack.Screen name="Screen1" component={Screen1} />
-  //       <Stack.Screen name="Screen2" component={Screen2} />
-  //     </Stack.Navigator>
-  //   </SafeAreaProvider>
-  // );
 }
 
 const styles = StyleSheet.create({

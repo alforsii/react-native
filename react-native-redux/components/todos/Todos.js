@@ -1,18 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { getTodos } from "../../auth_redux/actions/todosActions";
 import uuid from "react-uuid";
-import { StyleSheet, View, FlatList, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  View,
+  FlatList,
+  TouchableOpacity,
+  Button,
+} from "react-native";
+import { useScrollToTop } from "@react-navigation/native";
+import { getTodos } from "../../auth_redux/actions/todosActions";
 
-// import Header from "../../screens/Header";
 import TodoItem from "./TodoItem";
 import AddTodo from "./AddTodo";
 
 // =-=-=-=-=-=-=-=-=-=- Todos Component =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 export const Todos = ({ navigation, todosData, getTodos }) => {
-  const [todos, setTodos] = useState(todosData);
+  const [todos, setTodos] = useState([]);
+  const scrollRef = React.useRef();
+  useScrollToTop(scrollRef);
+
   useEffect(() => {
-    getTodos(); //_limit=10 - change limit in actions getTodos.
+    getTodos(); //_limit=20 - change limit in actions getTodos.
   }, []);
   useEffect(() => {
     setTodos(todosData);
@@ -24,18 +33,44 @@ export const Todos = ({ navigation, todosData, getTodos }) => {
   };
 
   const removeTodo = (id) => {
-    console.log("removeTodo -> id", id);
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id != id));
   };
   return (
     <View style={styles.container}>
-      {/* <Header navigation={navigation} title="Todos" /> */}
-      {/* <Button
-        title="Go to DetailsPage"
-        onPress={() => navigation.navigate("Details")}
-      /> */}
       <AddTodo addTodo={addTodo} />
       <FlatList
+        ref={scrollRef}
+        ListFooterComponent={() => (
+          <Button
+            title="ScrollToTop"
+            onPress={() =>
+              scrollRef.current.scrollToIndex({ index: 0, animated: true })
+            }
+          />
+        )}
+        ListHeaderComponent={() => (
+          <View>
+            <Button
+              title="scrollToEnd"
+              onPress={() => scrollRef.current.scrollToEnd()}
+            />
+            <Button
+              title="scrollToIndex 10"
+              onPress={() =>
+                scrollRef.current.scrollToIndex({ index: 10, animated: true })
+              }
+            />
+            <Button
+              title="scrollToOffset"
+              onPress={() =>
+                scrollRef.current.scrollToOffset({
+                  offset: 300,
+                  animated: true,
+                })
+              }
+            />
+          </View>
+        )}
         keyExtractor={(item) => item.id.toString()}
         data={todos}
         renderItem={({ item }) => (

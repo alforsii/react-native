@@ -1,12 +1,8 @@
 const initialState = {
   user: null,
-  users: null,
-  progress: 0,
   message: false,
   loggedIn: false,
-  isLoading: true,
   processing: false,
-  errMessage: false,
 };
 
 export const authReducer = (state = initialState, action) => {
@@ -15,21 +11,31 @@ export const authReducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.data.user,
-        // isLoading: false,
         processing: false,
         loggedIn: true,
         message: action.data.message,
-        errMessage: false,
       };
     case "LOGIN":
+      // console.log("LOGIN", { state, action });
       return {
         ...state,
-        user: action.data.user,
-        // isLoading: false,
+        user: action.user,
         processing: false,
         loggedIn: true,
-        message: action.data.message,
-        errMessage: false,
+      };
+    case "LOGOUT":
+      // console.log("LOGIN", { state, action });
+      return {
+        ...state,
+        user: null,
+        processing: false,
+        loggedIn: false,
+      };
+    case "ERROR":
+      return {
+        ...state,
+        message: action.message,
+        processing: false,
       };
     default:
       return state;
