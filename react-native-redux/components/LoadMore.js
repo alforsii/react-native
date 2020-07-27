@@ -12,7 +12,7 @@ import { useScrollToTop } from "@react-navigation/native";
 import { connect } from "react-redux";
 import { getPhotos } from "../auth_redux/actions/todosActions";
 
-class ImagesPureComponent extends PureComponent {
+class ImagePureComponent extends PureComponent {
   render() {
     return (
       <View>
@@ -45,7 +45,7 @@ export const LoadMore = ({ photoData, getPhotos, loading }) => {
         data={photoData}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({ item, index }) => (
-          <ImagesPureComponent item={item} index={index} />
+          <ImagePureComponent item={item} index={index} />
         )}
         onEndReached={loadMore}
         onEndReachedThreshold={0}
