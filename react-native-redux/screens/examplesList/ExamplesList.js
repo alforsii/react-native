@@ -16,6 +16,7 @@ const screens = [
   "LoadMore when scroll down",
   "Switch",
   "Share",
+  "DragAndDrop",
 ];
 export default function ExamplesList({ navigation }) {
   return (
