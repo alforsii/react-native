@@ -18,6 +18,7 @@ import Todos from "../../components/todos/Todos";
 import LoadMore from "../../components/LoadMore";
 import Switch from "../../components/Switch";
 import Share from "../../components/Share";
+import DragAndDrop from "../../components/animations/dragAndDrop/DragAndDrop";
 
 import TopTabs from "../tabs/TopTabs";
 
@@ -47,6 +48,7 @@ export default function Animations() {
       <Stack.Screen name="LoadMore when scroll down" component={LoadMore} />
       <Stack.Screen name="Switch" component={Switch} />
       <Stack.Screen name="Share" component={Share} />
+      <Stack.Screen name="DragAndDrop" component={DragAndDrop} />
       <Stack.Screen
         name="Modal"
         children={() => (
