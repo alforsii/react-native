@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import {
   Animated,
   Easing,
@@ -12,7 +12,6 @@ import {
 
 const EasingComponent = () => {
   let opacity = new Animated.Value(0);
-
   const animate = (easing) => {
     opacity.setValue(0);
     Animated.timing(opacity, {
