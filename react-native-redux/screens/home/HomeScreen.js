@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { login, logout } from "../../auth_redux/actions/authActions";
 import {
   StyleSheet,
   SafeAreaView,
@@ -12,6 +11,7 @@ import {
 
 import Header from "../../components/Header";
 import LoginModal from "../../components/forms/LoginModal";
+import { login, logout } from "../../auth_redux/actions/authActions";
 
 export const HomeScreen = ({ navigation, login, logout, loggedIn }) => {
   const handleLogin = (user) => {

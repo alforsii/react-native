@@ -75,7 +75,7 @@ export const AppNavigator = ({ loggedIn }) => {
 
 const mapStateToProps = (state) => {
   return {
-    loggedIn: state.authReducer.loggedIn,
+    loggedIn: true,
   };
 };
 
